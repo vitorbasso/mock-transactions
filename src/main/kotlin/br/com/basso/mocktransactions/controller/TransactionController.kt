@@ -13,7 +13,7 @@ import java.time.Month
 @RestController
 @RequestMapping("{clientId}/transactions")
 class TransactionController(
-    val transactionService: TransactionService
+    private val transactionService: TransactionService
 ) {
 
     @GetMapping("/{transactionYear}/{transactionMonth}")
