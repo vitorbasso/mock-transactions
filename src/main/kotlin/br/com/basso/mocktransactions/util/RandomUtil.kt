@@ -14,7 +14,7 @@ class RandomUtil private constructor(userId: Int, private val transactionYear: I
 
     private val random = Random(seed)
 
-    fun getRandomDate() = Timestamp.valueOf(
+    fun getRandomTimestamp(): Timestamp = Timestamp.valueOf(
         LocalDate.of(
             transactionYear,
             transactionMonth,
@@ -26,7 +26,7 @@ class RandomUtil private constructor(userId: Int, private val transactionYear: I
                 random.nextInt(RANGE_TIME.first, RANGE_TIME.second)
             )
         )
-    ).time
+    )
 
     fun getRandomValue(start: Int, end: Int) = random.nextInt(start, end)
 
