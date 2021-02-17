@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 import java.time.Month
 
 @RestController
-@RequestMapping("{clientId}/transactions")
+@RequestMapping("{clientId}/transacoes")
 class TransactionController(
     private val transactionService: TransactionService
 ) {
