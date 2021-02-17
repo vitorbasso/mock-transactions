@@ -18,12 +18,12 @@ class RandomUtil private constructor(userId: Int, private val transactionYear: I
         LocalDate.of(
             transactionYear,
             transactionMonth,
-            random.nextInt(1, YearMonth.of(transactionYear, transactionMonth).lengthOfMonth() + 1)
+            getRandomValue(1, YearMonth.of(transactionYear, transactionMonth).lengthOfMonth() + 1)
         ).atTime(
             LocalTime.of(
-                random.nextInt(RANGE_TIME.first, RANGE_HOUR.second),
-                random.nextInt(RANGE_TIME.first, RANGE_TIME.second),
-                random.nextInt(RANGE_TIME.first, RANGE_TIME.second)
+                getRandomValue(RANGE_TIME.first, RANGE_HOUR.second),
+                getRandomValue(RANGE_TIME.first, RANGE_TIME.second),
+                getRandomValue(RANGE_TIME.first, RANGE_TIME.second)
             )
         )
     )
@@ -42,8 +42,8 @@ class RandomUtil private constructor(userId: Int, private val transactionYear: I
         var isVowelTurn = random.nextBoolean()
         return List(wordSize) {
             isVowelTurn = !isVowelTurn
-            if (isVowelTurn) VOWEL_LIST[random.nextInt(0, VOWEL_LIST.size)]
-            else CONSONANT_LIST[random.nextInt(0, CONSONANT_LIST.size)]
+            if (isVowelTurn) VOWEL_LIST[getRandomValue(0, VOWEL_LIST.size)]
+            else CONSONANT_LIST[getRandomValue(0, CONSONANT_LIST.size)]
         }.joinToString(separator = "")
     }
 
